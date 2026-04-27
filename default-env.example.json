@@ -1,0 +1,24 @@
+{
+  "VCAP_SERVICES": {
+    "xsuaa": [
+      {
+        "name": "xsuaa-service",
+        "label": "xsuaa",
+        "tags": [
+          "xsuaa"
+        ],
+        "credentials": {
+          "tenantmode": "dedicated",
+          "clientid": "sb-demo-clientid!t123",
+          "clientsecret": "demo-secret-key-123456=",
+          "url": "https://demo-tenant.authentication.sap.hana.ondemand.com",
+          "xsappname": "demo-xsappname!t1234",
+          "identityzone": "demo-tenant",
+          "tenantid": "12345678-1234-1234-1234-1234567890ab",
+          "uaadomain": "authentication.sap.hana.ondemand.com",
+          "verificationkey": "-----BEGIN PUBLIC KEY-----\nMIIBIjANBgkqhki...\n-----END PUBLIC KEY-----"
+        }
+      }
+    ]
+  }
+}

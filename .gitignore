@@ -1,0 +1,6 @@
+target/
+mta_archives/
+.idea/
+.vscode/
+.DS_Store
+default-env.json

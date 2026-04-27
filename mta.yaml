@@ -1,0 +1,37 @@
+_schema-version: '3.1'
+ID: springboot-resource-server-xsuaa
+version: 0.0.1
+description: "Demo project for Spring Boot with SAP XSUAA"
+
+parameters:
+  enable-parallel-deployments: true
+
+modules:
+  - name: springboot-resource-server-xsuaa-app
+    type: java
+    path: .
+    properties:
+      SPRING_PROFILES_ACTIVE: cloud
+      JBP_CONFIG_OPEN_JDK_JRE: '{ jre: { version: 17.+ } }'
+      JBP_CONFIG_SPRING_AUTO_RECONFIGURATION: '{enabled: false}'
+    parameters:
+      buildpack: java_buildpack
+      memory: 1024M
+    build-parameters:
+      builder: custom
+      commands:
+        - mvn clean package -DskipTests=true
+      build-result: target/springboot-resource-server-xsuaa-0.0.1-SNAPSHOT.jar
+    requires:
+      - name: xsuaa-service
+
+resources:
+  - name: xsuaa-service
+    type: org.cloudfoundry.managed-service
+    parameters:
+      service: xsuaa
+      service-plan: application
+      path: xs-security.json
+      config:
+        xsappname: springboot-resource-server-xsuaa-${space}
+        tenant-mode: dedicated

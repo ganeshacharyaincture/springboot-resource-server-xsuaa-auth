@@ -1,0 +1,6 @@
+{
+  "xsappname": "springboot-resource-server-xsuaa",
+  "tenant-mode": "dedicated",
+  "scopes": [],
+  "role-templates": []
+}

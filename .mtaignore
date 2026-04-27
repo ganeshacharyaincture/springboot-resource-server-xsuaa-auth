@@ -1,0 +1,9 @@
+.git/
+.mtaignore
+mta_archives/
+target/
+.idea/
+.vscode/
+.DS_Store
+default-env.json
+src/main/resources/application-local.properties
